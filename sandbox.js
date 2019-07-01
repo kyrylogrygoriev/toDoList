@@ -1,20 +1,30 @@
-//first step: query the DOM element
-// const button = document.querySelector('button');
+const ul = document.querySelector('ul');
+// ul.remove();
+
+const button = document.querySelector('button');
+button.addEventListener('click', () => {
+  // ul.innerHTML += '<li>something new</li>';
+  const li = document.createElement('li');
+  li.textContent = 'something new to do';
+  ul.append(li);
+  // ul.prepend(li);
+})
+
+
+// const items = document.querySelectorAll('li');
+// items.forEach(item =>{
+//   item.addEventListener('click', event =>{
+//     // event.target.style.textDecoration = 'line-through';
+//     console.log('event in LI');
+//     event.stopPropagation();
+//     event.target.remove();
 //
-// //second step: add event listener
-// button.addEventListener('click', () => {
-//   console.log('you cliked me');
+//   });
 // });
 
-const items = document.querySelectorAll('li');
-
-items.forEach(item =>{
-  item.addEventListener('click', event =>{
-    // console.log('item clicked');
-    // console.log(event);
-    // console.log(event.target);
-    event.target.style.textDecoration = 'line-through';
-
-  });
-
+ul.addEventListener('click', e => {
+  // console.log('event in UL');
+  if(e.target.tagName === 'LI'){
+    e.target.remove();
+  }
 });
